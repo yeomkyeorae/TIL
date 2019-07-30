@@ -2,7 +2,7 @@
 
 ## 01_css.html
 
-![01](./images/1.png)
+![01](./images/1.PNG)
 
 > 선택자1
 
@@ -68,7 +68,7 @@ h1 {
 
 ## 02_selector.html
 
-![02_selector.html](./images/2.png)
+![02_selector.html](./images/2.PNG)
 
 > 선택자2
 
@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6, .goldenrod {
 
 ## 03_unit.html
 
-![03_unit.html](./images/3.png)
+![03_unit.html](./images/3.PNG)
 
 ```css
 /* rem
@@ -214,7 +214,7 @@ ul, ul li {
 
 ## 04_box_model.html
 
-![04_box_model.html](./images/4.png)
+![04_box_model.html](./images/4.PNG)
 
 ```css
 .margin {
@@ -272,7 +272,7 @@ ul, ul li {
 
 ## 05_display.html
 
-![05_display.html](./images/5.png)
+![05_display.html](./images/5.PNG)
 
 ```css
 /* 좌측 정렬 */
@@ -309,7 +309,7 @@ ul, ul li {
 
 ## 06_display_2.html
 
-![06_display_2.html](./images/6.png)
+![06_display_2.html](./images/6.PNG)
 
 - `inline`: 내용없이 존재할 수 없음. (`width`, `height` 적용 x)
 - `inline-block`: `block` 속성(`width`, `height`) + `inline` 속성(우측 `margin`이 사라짐
@@ -350,7 +350,7 @@ ul, ul li {
 
 ## 07_position.html
 
-![07_position.html](./images/7.png)
+![07_position.html](./images/7.PNG)
 
 
 
@@ -394,8 +394,8 @@ body {
 ```
 
 - 자세한 사항은 코드 참조 
-- [07_position.html로 이동하기]() 
-- [07_style.css로 이동하기]()
+- [07_position.html로 이동하기](https://github.com/yeomkyeorae/TIL/blob/master/web/CSS/07_position.html) 
+- [07_style.css로 이동하기](https://github.com/yeomkyeorae/TIL/blob/master/web/CSS/07_style.css)
 
 
 
@@ -411,11 +411,11 @@ body {
 
 ## box.html
 
-![box.html](./images/9.png)
+![box.html](./images/9.PNG)
 
 - 07_position.html 응용
-- [box.html]()
-- [box_style.css]()
+- [box.html](https://github.com/yeomkyeorae/TIL/blob/master/web/CSS/box.html)
+- [box_style.css](https://github.com/yeomkyeorae/TIL/blob/master/web/CSS/box_style.css)
 
 
 
@@ -423,7 +423,7 @@ body {
 
 ## 08. float.html
 
-![float.html](./images/8.png)
+![float.html](./images/8.PNG)
 
 
 
