@@ -1,0 +1,26 @@
+/* extra small 
+  smartphone size!
+*/
+@media (min-width: 576px) {
+  /*  small
+  Galaxy Note 10
+  */
+}
+
+@media (min-width: 768px) {
+  /* medium
+  Galaxy tablet 
+  */
+}
+
+@media (min-width: 992px) {
+  /* large
+  desktop
+  */
+}
+
+@media (min-width: 992px) {
+  /* extra large
+  large desktop
+   */
+}
