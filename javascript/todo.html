@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>todo-list</title>
+  <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+  <br>
+  <h1>Todo List</h1>
+  <h2 id="time"></h2>
+  <form action="" id="form">
+    <label for="input">할 일을 입력하세요</label>
+    <input type="text" id="input">
+    <button id="input-button" type="submit">💩</button>
+  </form>
+    <ul id='todo-list'>
+  </ul>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const form = document.querySelector('#form')
+    const btn = document.querySelector('#input-button')
+    const todos = document.querySelector('#todo-list')
+    const input = document.querySelector('#input')
+
+  
+    form.addEventListener('submit', function(event){
+      event.preventDefault()
+      if (input.value) {
+        // li 하나를 새롭게 만들어서
+        const li = document.createElement('li')
+        
+        const del = document.createElement('button')
+        del.innerText = '❌'
+        del.style.marginLeft = '10px'
+        del.addEventListener('click', function(event){
+          const li = del.parentNode
+          todos.removeChild(li)
+        })
+        // 값을 넣고
+        // const input = event.target.previousElementSibling  // 이벤트가 발생한 대상
+        console.log(this.previousElementSibling)          // 
+        // todo-list에 붙인다.
+        li.innerText = input.value
+        li.appendChild(del)
+        input.valie = ''
+        todos.appendChild(li)
+      }
+    })
+
+    // const image = new Image()
+    // image.src = 'images/jjang.png'
+    // const body = document.querySelector('body')
+    // body.prepend(image)
+
+    const h2 = document.querySelector('#time')
+    function getTime(){
+      const date = new Date();
+      const minutes = date.getMinutes();
+      const hours = date.getHours();
+      const seconds = date.getSeconds();
+      h2.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+          minutes < 10 ? `0${minutes}` : minutes}:${
+          seconds < 10 ? `0${seconds}` : seconds
+      }`;
+    }
+
+    function setBg(){
+      axios.get('https://source.unsplash.com/1600x900/?nature,water')
+          .then(response =>{
+            const body = document.querySelector('body')
+            const image = new Image()
+            image.classList.add('bgImage')
+            image.src = response.request.responseURL
+            
+            body.prepend(image)
+          })
+    }
+
+    function init(){
+      setBg()
+      getTime();
+      setInterval(getTime, 1000);
+    }
+    init();
+  </script>
+</body>
+</html>
