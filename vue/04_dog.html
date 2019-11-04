@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="addDog">멍멍</button>
+        <button v-on:click="addCat">야옹</button>
+        <p>{{ count }} </p>
+        <br>
+        <img v-for="imageUrl in imageUrls" v-bind:src="imageUrl" alt="" width="200px" height="200px">
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                imageUrls: [],
+                count = 0
+            },
+            methods: {
+                addDog: function(){
+                    axios.get('https://dog.ceo/api/breeds/image/random')
+                        .then( response => {
+                            this.imageUrls.push(response.data.message)
+                            this.count++
+                        })
+                },
+                addCat: function(){
+                    axios.get('https://api.thecatapi.com/v1/images/search?format=json')
+                        .then( response => {    
+                            // 단순 function: window, arrow function: view
+                            this.imageUrls.push(response.data[0].url)
+                            this.count++
+                        })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

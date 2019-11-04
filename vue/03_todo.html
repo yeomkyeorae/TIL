@@ -6,10 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .complted {
+            color: gray;
+        }
+    </style>
 </head>
 <body>
     <div class="" id="app">
-        <img v-bind:src="logo" alt="" width="200px">
+        <img v-bind:src="logo" alt="" width="200px"><br>
+        <input type="text" v-model="newTodo" v-on:keyup.enter="submit()"><br>
         <!-- 
             디렉티브
             v-for : 반복문
@@ -19,12 +25,17 @@
         <li v-for="todo in todos" v-if="!todo.completed" v-on:click="toggleCompleted(todo)">
             {{ todo.content }}
         </li>
-        <li v-else v-on:click="toggleCompleted(todo)">[완료!]</li>
+        <li v-else v-on:click="toggleCompleted(todo)" class="completed">
+            <del>
+                {{ todo.content }}
+            </del>
+        </li>
     </div>
     <script>
         const app = new Vue({
             el: '#app',
             data: {
+                newTodo: '',
                 logo: 'C:\\Users\\student\\Desktop\\thankyou.jpg',
                 todos: [
                     { 
@@ -44,6 +55,14 @@
             methods: {
                 toggleCompleted: function(todo){
                     todo.completed = !todo.completed
+                },
+                submit: function(){
+                    this.todos.push({
+                            content: this.newTodo,
+                            completed: false
+                        }
+                    )
+                    this.newTodo = ''
                 }
             }
         })
