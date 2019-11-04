@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    {{ message }}
+    <div id="app">
+        {{ message }} - {{ count }}
+    </div>
+
+    <script>
+        // m(data) - vm(app) - v(그려지는 것)
+        const app = new Vue({
+            el: '#app', 
+            // el: app id 선택자, 조작할 DOM(V), vue object(VM) mount(연결)
+            // class, id 선택자를 바탕으로 DOM을 설정
+            // data: 항상 기본으로 object type이어야 한다
+            data: {
+                // app.message, app.count
+                // app.$data.message, app.$data.count
+                message: 'Happy! Hacking!', // String
+                count: 0,   // Integer, Array, Object
+            },
+            methods: {
+                // arrow function 쓰면 안됨
+                plus: function() {
+                    this.count++
+                },
+                minus: function() {
+                    this.count--
+                }
+            }
+        })
+    </script>
+</body>
+</html>

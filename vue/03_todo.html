@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div class="" id="app">
+        <img v-bind:src="logo" alt="" width="200px">
+        <!-- 
+            디렉티브
+            v-for : 반복문
+            v-if : 조건문
+            같이 작성을 하게 되면, 매 반복에 if를 체크
+        -->
+        <li v-for="todo in todos" v-if="!todo.completed" v-on:click="toggleCompleted(todo)">
+            {{ todo.content }}
+        </li>
+        <li v-else v-on:click="toggleCompleted(todo)">[완료!]</li>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                logo: 'C:\\Users\\student\\Desktop\\thankyou.jpg',
+                todos: [
+                    { 
+                        content: '수업 열심히 듣기',
+                        completed: true
+                    },
+                    {
+                        content: '밥 먹기',
+                        completed: false
+                    },
+                    {
+                        content: '롤 하기',
+                        completed: false
+                    }
+,                ]
+            },
+            methods: {
+                toggleCompleted: function(todo){
+                    todo.completed = !todo.completed
+                }
+            }
+        })
+    </script>
+</body>
+</html>
