@@ -25,7 +25,7 @@
 <body>
     <div class="" id="app">
         <!-- <h1 :class="{red: !isBlue, blue: isBlue}">영철이형의 하루 할일</h1> -->
-        <h1 :style="{color: color, 'font-size': fontSize}">무무무무</h1>
+        <h1 :style="{color: color, 'font-size': fontSize}">{{ time }}</h1>
         <img v-bind:src="logo" alt="" width="200px"><br>
         <button v-on:click="completeAll()">모두 완료</button>
         <button v-on:click="clear()">clear</button><br>
@@ -48,6 +48,8 @@
             <input type="checkbox" v-model="todo.completed">
             {{ todo.content }}
         </li>
+        <h1 v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}">무연쓰</h1>
+        <div class="static" v-bind:class="{active: isActive, 'error': hasError}"></div>
         <!-- <li v-else v-on:click="toggleCompleted(todo)" style="list-style: none;">
             <input type="checkbox">
             <del>
@@ -67,8 +69,12 @@
         const app = new Vue({
             el: '#app',
             data: {
+                isActive: true,
+	            hasError: false,
+                time: '',
+                activeColor: 'red',
+                fontSize: 30,
                 color: 'green',
-                fontSize: '',
                 status: 'all', // 'active'(false), 'completed'(true)
                 newTodo: '',
                 logo: 'C:\\Users\\student\\Desktop\\123.jpg',
@@ -112,6 +118,16 @@
                 },
                 clear: function(){
                     this.todos = this.todos.filter(el => !el.completed)
+                },
+                updateTime(){
+                    const date = new Date()
+                    const minutes = date.getMinutes()
+                    const hours = date.getHours()
+                    const seconds = date.getSeconds()
+                    this.time = `${hours < 10 ? `0${hours}` : hours}:${
+                        minutes < 10 ? `0${minutes}` : minutes}:${
+                        seconds < 10 ? `0${seconds}` : seconds
+                    }`
                 }
             },
             computed: {
@@ -140,7 +156,12 @@
             },
             mounted: function(){    // vue 시작되는 시점에 ~해라(최초 1회)
                 console.log('아침이 되었습니다.')
+                this.updateTime()
                 this.todos = todoStorage.fetch()
+                this.$options.myInterval = setInterval(this.updateTime, 1000)
+            },
+            beforeDestroy: function() {
+                clearInterval(this.$options.myInterval)
             }
         })
     </script>
