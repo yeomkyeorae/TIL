@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <!-- 반복문 돌려서 li 태그로 이름 출력
+            for
+                if(같은 라인, 우선순위가 for가 높음)
+        -->
+        <p v-for="member in members" v-if="member.gender === 'M'">{{ member.name }}?</p>
+        <p v-else>{{ member.name }}!</p>
+        <!-- v-model 
+            data 내에 초기화가 반드시 필요
+        -->
+        <input type="text" v-model="userText">
+        {{ userText }}
+        <!-- 속성값: v-bind -->
+        <img v-bind:src="url" alt="" class="src">
+        <img :src="url" alt="">
+        
+        <p>{{ counter }} </p>
+        <!-- 이벤트 -->
+        <button @click="countDown">-----</button>
+        <!-- computed vs methods -->
+        <!-- 함수를 실행, 모든 데이터 변경시마다 계속 호출 -->
+        <h2>methods : {{ dateMethods() }}</h2>
+        <!-- 캐싱해서 저장돼 있는 변수값, 함수의 실행 결과를 계산된(computed) 변수의 값으로 저장-->
+        <h2>computed: {{ dateComputed }}</h2>   
+        <!-- v-text 아래 두개가 동일 -->
+        <h3 v-text="message"></h3>
+        <h3>{{ message }}</h3>
+        <!-- v-html 문자열 태그로 사용하기 -->
+        {{ myTag }}
+        <span v-html="myTag"></span>
+        <!-- v-show -->
+        <p v-show="false">이 것은 보이나요.</p> <!-- 렌더링은 하는데, css로 보이지 않게함. (개발자 도구 확인)-->
+        <p v-if="false">태우 바보</p>   <!-- 렌더링 자체를 하지 않음. -->
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app', // app.$el
+            data: { // app.$data
+                message: 'Hello',   // app.message
+                myTag: '<h2>우와아아아</h2>',
+                members: [
+                    {name: '무무', gender: 'M'},
+                    {name: '무쓰', gender: 'F'},
+                    {name: '무무쓰', gender: 'M'}
+                ],
+                userText: '',
+                url: 'data:image/jpeg;base64,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',
+                counter: 0
+            },
+            methods: {
+                countUp: function() {
+                    this.counter++
+                },
+                countDown: function() {
+                    this.counter--
+                },
+                dateMethods() {
+                    return new Date()
+                }
+            },
+            computed: {
+                dateComputed(){
+                    return new Date()
+                }
+            }
+        })
+    </script>
+</body>
+</html>
