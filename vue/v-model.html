@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="changeColor">CngColor</button>
+    <p :class="{red: !isBlue, blue: isBlue}">안녕하세요 v-Model입니다</p>
+    <p :style="{color: colorName}">무무쓰님</p>
+    <input v-model.trim="message" type="text" name="" id=""><br>
+    <input v-model.number="number" type="number" name="" id=""><br>
+    <select v-model="woong.pokemon" name="" id="">
+      <option value="치코리타" class="value">치코리타</option>
+      <option value="브케인" class="value">브케인</option>
+      <option value="리아코" class="value">리아코</option>
+    </select><br>
+    <input v-model="checked" type="checkbox"><br>
+    <input v-model="type" value="leaf" name="asdf" type="radio" name="" id="leaf"><label for="leaf">풀</label>
+    <input v-model="type" value="fire" name="asdf" type="radio" name="" id="fire"><label for="leaf">불</label>
+    <input v-model="type" value="water" name="asdf" type="radio" name="" id="water"><label for="leaf">물</label>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        woong: {
+          pokemon: ''
+        },
+        message: '',
+        number: 0,
+        select: '',
+        checked: true,
+        type: '',
+        isBlue: true,
+        colorName: 'red'
+      },
+      methods: {
+        changeColor(){
+          this.isBlue = !this.isBlue
+          if(this.colorName === 'red'){
+            this.colorName = 'blue'
+          }else{
+            this.colorName = 'red'
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
