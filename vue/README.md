@@ -198,3 +198,47 @@ mounted: function(){
 
  
 
+## Component
+
+ vue를 활용한 코드 상에서, 중복되는 로직으로 인해 동일한 코드(변수명만 다르고 로직은 같은)가 범람하는 것을 막기 위해 Component로 관리하여 쉽게 이용토록 하자!
+
+> 기본 선언
+
+```html
+<div id="app">
+    <todo-list category="todo"></todo-list>
+</div>
+<script>
+	Vue.component('todo-list', {
+        template:
+        `
+		html 코드가 들어간다
+		`,
+        // props: 하위 컴포넌트(todo-list)로 데이터 전송 + 검증
+        props: {
+            category: {
+                type: String,
+                required: true
+            }
+        },
+        // 기존 vue와 달리 object가 아닌 object를 return하는 형식
+        data(){
+            return {
+                todos: []
+            }
+        },
+        methods: {
+            addTodo(){
+			
+            }
+        }
+    })
+</script>
+<script>
+   // 루트
+   const app = new Vue({
+     el: '#app',
+   })
+</script>
+```
+

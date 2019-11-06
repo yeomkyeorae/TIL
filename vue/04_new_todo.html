@@ -10,21 +10,38 @@
 <body>
   <div id="app">
     <h1>Yeom's Todo</h1>
-    <input v-model="newTodo" type="text">
-    <button @click="addTodo">추가</button><br>
-    <li v-for="todo in todos" :key="todo.id">
-      {{ todo.content }}
-      <button @click="removeTodo(todo.id)">삭제</button>
-    </li>
+    <todo-list category="취업준비"></todo-list> <!-- component의 하위 컴포넌트 -->
+    <todo-list category="SSAFY"></todo-list>  <!-- component로 데이터를 보내려면 eventListener 필요 -->
+    <todo-list category="개인"></todo-list>
   </div>
   <script>
-    const app = new Vue({
-      el: '#app',
-      data: {
-        newTodo: '',
-        todos: [
-
-        ]
+    // 전역 컴포넌트 선언부
+    Vue.component('todo-list', {
+      // 옵션
+      template: 
+      `
+      <div class="todo-list">
+        <h2>{{ category }}</h2>
+        <input v-model="newTodo" type="text">
+        <button @click="addTodo">추가</button><br>
+        <li v-for="todo in todos" :key="todo.id">
+          {{ todo.content }}
+          <button @click="removeTodo(todo.id)">삭제</button>
+        </li>
+      </div>
+      `,
+      // props: 하위 컴포넌트(todo-list)로 데이터 전송 + 검증
+      props: {
+        category: {
+            type: String,
+            required: true
+        }
+      },  
+      data(){
+        return {
+          todos: [],
+          newTodo: ''
+        }
       },
       methods: {
         addTodo(){
@@ -40,6 +57,12 @@
           })
         }
       }
+    })
+  </script>
+  <script>
+    // 루트
+    const app = new Vue({
+      el: '#app',
     })
   </script>
 </body>
