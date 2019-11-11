@@ -242,3 +242,109 @@ mounted: function(){
 </script>
 ```
 
+
+
+## Props vs emit by YOUTUBE
+
+- props은 `상위 컴포넌트`에서 `하위 컴포넌트`로 데이터를 전달. (하위 컴포넌트에 props를 선언해 사용)
+- emit은 `하위 컴포넌트`에서 `트리거`를 통해 `상위 컴포넌트`로 이벤트를 전달하는 형식.
+
+> 결과 예시
+
+![예시](./youtube/images/1.PNG)
+
+
+
+> 구조
+
+```
+			APP
+↑			↓↑			↓
+SearchBar	VideoList	VideoDetail
+			↓↑
+			VideoListItem
+```
+
+- `SearchBar`: 검색어를 입력할 수 있는 Component 제공
+- `VideoList`: 개별 Video들을 담아놓는 VideoList Component 제공. VideoListItem에서의 이벤트를 전달받아 App으로 함수를 전달.
+- `VideoListItem`: 개별 Video에 대한 component 제공, 클릭시 트리거를 발생시켜 VideoList로 함수를 전달.
+- `VideoDetail`: App으로부터 클릭된 이벤트 target을 전달받아 iframe으로 동영상 출력.
+
+
+
+> 동영상 클릭 시나리오로 알아보는 props & emit
+
+1. 동영상 클릭, `VideoList`로 전달
+
+```html
+<!-- VideoListItem -->
+<div @click="selectedVideo">
+    
+</div>
+
+<script>
+// ...
+    methods: {
+        selectedVideo(){
+            this.$emit('video-select-event', this.video)
+        }
+    }
+</script>
+```
+
+- `selectedVideo`함수를 통해서 상위 컴포넌트로 `emit`
+
+
+
+2. `App`으로 전달
+
+```html
+<!-- VideoList -->
+<div>
+    <VideoListItem @video-select-event="selectedVideo" v-for="video in videos" 				:key="video.id.videoId" :video="video"/>
+</div>
+
+<script>
+// ...
+    methods: {
+        selectedVideo(video){
+            this.$emit('video-select-event', video)
+        }
+    }
+</script>
+```
+
+- `selectedVideo`함수(이름 같아도 OK)를 통해서 또 상위 컴포넌트로 `emit`
+
+
+
+3. `VideoDetail`로 전달
+
+```html
+<!-- App -->
+<div>
+    <video-detail :selectedVideo="selectedVideo"/>
+    <video-list @video-select-event="openDetail" :videos="videos"/>
+</div>
+
+<script>
+	data() {
+        return{
+            videos: [],
+        	selectedVideo: null   
+        }
+    },
+    methods: {
+        // ...
+        openDetail(video){
+      		this.selectedVideo = video
+    	}
+    }
+</script>
+```
+
+- `VideoDetail`에서 `props`를 통해 `selectedVideo` 객체 사용!
+
+- data 사용할 때 함수 형식으로 `return`해야 된다는 것 잊지 마시고.
+
+  
