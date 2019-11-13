@@ -258,11 +258,11 @@ mounted: function(){
 > 구조
 
 ```
-			APP
-↑			↓↑			↓
+		APP
+↑		↓↑		↓
 SearchBar	VideoList	VideoDetail
-			↓↑
-			VideoListItem
+		↓↑
+		VideoListItem
 ```
 
 - `SearchBar`: 검색어를 입력할 수 있는 Component 제공
