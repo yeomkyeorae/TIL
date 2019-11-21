@@ -147,3 +147,31 @@ profile.jpg	   # profile.jpg 파일
 처음에는 직접 만들기보다 [gitignore](https://gitignore.io)에서 내 개발환경에 맞춰 만들어주는 파일을 적용하자.
 
 예를 들면, pycharm을 쓰고 있을 때 `.idea/`를 올리지 않는다거나, python에서는 `__pycache__/`를 올릴 필요는 없다.
+
+
+
+# Tip
+
+1. 특정 파일을 커밋 이력에서 삭제하고 싶다. 다만, 파일은 유지하고 싶을 때
+
+   예) db.sqlite3가 이미 커밋이 되어 버림
+
+   ```bash
+   $ git rm --cached db.sqlite3
+   ```
+
+   위의 명령어를 작성하고, `.gitignore`에 `db.sqlite3`등록
+
+2. unstage
+
+   ```bash
+   $ git reset HEAD <file>
+   ```
+
+3. 커밋 메시지 수정(push하기 전에) & 빠뜨린 파일 commit할 때
+
+   ```bash
+   $ git commit --amend
+   ```
+
+   
