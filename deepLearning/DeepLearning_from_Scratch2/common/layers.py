@@ -65,4 +65,22 @@ class Affine:
         return dx
 
 
-    
+class Softmax:
+    def __init__(self):
+        self.params, self.grads = [], []
+        self.out = None
+
+    def forward(self, x):
+        self.out = softmax(x)
+
+
+class SoftmaxWithLoss:
+    def __init__(self):
+        self.params, self.grads = [], []
+        self.y = None
+        self.t = None
+
+    def forward(self, x, t):
+        self.t = t
+        self.y = softmax(x)
+
