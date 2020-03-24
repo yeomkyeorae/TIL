@@ -32,3 +32,48 @@ $ npm start
 ```
 
 생성한 react app 폴더로 들어가서 `npm start`를 하면 react가 실행되는 것을 확인할 수 있습니다.
+
+
+
+## 2. JSX & Props
+
+### 1. JSX 기본 개념 및 Component 생성
+
+`JSX` 은 React에서 나온 유일한 개념입니다. `JSX`는 자바스크립트 코드 안에 HTML가 자리잡고 있습니다. Component는 이 `JSX` 형태를 갖습니다. `Potato`라는 이름의 Component를 추가해 보겠습니다.
+
+```javascript
+// Potato.js
+import React from "react";
+
+function Potato() {
+    return (
+        <h3>I love potato</h3>
+    )
+}
+
+export default Potato;
+```
+
+- 모든 Component는 `import React from "react";`로 명시해주어야 Component로 사용할 수 있습니다.
+- `return` 값에 `HTML`코드를 가지고 있는 함수(function)로 Component는 구성됩니다.
+
+이를 `App.js`에 `import`하여 사용하면 아래 코드와 같습니다.
+
+```javascript
+import React from 'react';
+import Potato from "./Potato";
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello</h1>
+      <Potato />
+    </div>
+  );
+}
+
+export default App;
+```
+
+- `import Potato from "./Potato"` 하여 Component 생성 준비를 합니다.
+- `<Potato />` 형태로 Component를 원하는 위치에서 사용할 수 있습니다. 
