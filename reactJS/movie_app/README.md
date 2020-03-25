@@ -114,3 +114,62 @@ function Food({fav}) {
 }
 ```
 
+
+
+### 3. 동적 컴포넌트 생성
+
+데이터가 다르면서 무수히 많은 컴포넌트를 생성할 때 `map`을 이용하여 컴포넌트를 생성할 수도 있습니다.
+
+`array`에 `map`을 적용할 경우 원소 하나하나에 함수를 적용해서 return 받을 수 있게 됩니다. 예시는 아래와 같습니다.
+
+```javascript
+numbers = [1, 2, 3, 4]
+numbers.map(num => {
+    return num + 1
+})
+// [2, 3, 4, 5]
+```
+
+`map`을 활용해서 `Food` 컴포넌트를 생성해 보도록 하겠습니다.
+
+```javascript
+import React from 'react';
+
+function Food({name, picture}) {
+  return <div>
+    <h2>I like {name}</h2>  
+    <img src={picture} />
+  </div>
+}
+
+const foodILike = [
+  {
+    name: "Kimchi",
+    image: "https://cdn.crowdpic.net/detail-thumb/thumb_d_CDC14868821FF3F20C77BC8BC15E6355.jpg"
+  },
+  {
+    name: "Kimbab",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS0_5woTu2Kk3_SjZWLva_W_QsxKTL1zNo5TXgpWbtf8h_y2rjH"
+  },
+  {
+    name: "Samgyeobsal",
+    image: "https://pds.joins.com/news/component/htmlphoto_mmdata/201702/27/117f5b49-1d09-4550-8ab7-87c0d82614de.jpg"
+  }
+]
+
+function App() {
+  return (
+    <div className="App">
+      { foodILike.map(dish => (
+      <Food name={dish.name} picture={dish.image}/>
+      ))}
+    </div>
+  );
+}
+
+export default App;
+```
+
+- `foodILike`에 있는 데이터를 가지고 `Food` 컴포넌트에 `props` 적용해 데이터를 전달할 수 있습니다.
+- 먼저 `HTML`에 `javascript`코드를 활용하기 위해 {}을 생성합니다.
+- 그리고 `foodILike`에 `map`을 적용해 내부 함수에 `<Food name={dish.name} picture={dish.image}>`와 같이 코드를 작성하면 `foodILike`에 있는 데이터 순서대로 `props`로 데이터를 전달해 `Food` 컴포넌트가 순서대로 생성되는 것을 볼 수 있습니다.
