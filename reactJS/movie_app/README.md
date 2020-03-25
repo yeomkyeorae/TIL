@@ -77,3 +77,40 @@ export default App;
 
 - `import Potato from "./Potato"` 하여 Component 생성 준비를 합니다.
 - `<Potato />` 형태로 Component를 원하는 위치에서 사용할 수 있습니다. 
+
+
+
+### 2. Props
+
+Props를 사용해서 상위 parent component에서 하위 children component로 데이터를 보낼 수 있습니다. 이때 사용하는 것이 Props입니다. 편의상 위에 작성했던 `Potato` component를 import하는 대신 `Food` component로 대체하고 function에 Props를 적용해 보겠습니다.
+
+```javascript
+import React from 'react';
+
+function Food(props) {
+  return <h1>I like {props.fav}</h1>
+}
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello</h1>
+      <Food fav="kimchi" />
+      <Food fav="samgyepsal" />
+      <Food fav="chocolate" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+- function을 활용해 `Food`라는 이름의 component를 만들고, App component 안에 `<Food fav="음식 이름" />`로 `Food` component를 생성했습니다. 생성할 때 `fav`라는 변수에 "음식이름"을 할당해 전달하면 `Food`는 object 형식의 props 인자로 받아 function 내부에서 활용할 수 있습니다. `ES6` 문법으로 `{ props.fav }`로 접근합니다.
+- 아래와 같은 형식으로 사용할 수도 있습니다.
+
+```javascript
+function Food({fav}) {
+    return <h1>I like { fav }<h1>
+}
+```
+
