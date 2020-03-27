@@ -144,14 +144,17 @@ function Food({name, picture}) {
 
 const foodILike = [
   {
+    id: 1,
     name: "Kimchi",
     image: "https://cdn.crowdpic.net/detail-thumb/thumb_d_CDC14868821FF3F20C77BC8BC15E6355.jpg"
   },
   {
+    id: 2,
     name: "Kimbab",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS0_5woTu2Kk3_SjZWLva_W_QsxKTL1zNo5TXgpWbtf8h_y2rjH"
   },
   {
+    id: 3,
     name: "Samgyeobsal",
     image: "https://pds.joins.com/news/component/htmlphoto_mmdata/201702/27/117f5b49-1d09-4550-8ab7-87c0d82614de.jpg"
   }
@@ -161,7 +164,7 @@ function App() {
   return (
     <div className="App">
       { foodILike.map(dish => (
-      <Food name={dish.name} picture={dish.image}/>
+      <Food key={dish.id} name={dish.name} picture={dish.image}/>
       ))}
     </div>
   );
@@ -173,3 +176,4 @@ export default App;
 - `foodILike`에 있는 데이터를 가지고 `Food` 컴포넌트에 `props` 적용해 데이터를 전달할 수 있습니다.
 - 먼저 `HTML`에 `javascript`코드를 활용하기 위해 {}을 생성합니다.
 - 그리고 `foodILike`에 `map`을 적용해 내부 함수에 `<Food name={dish.name} picture={dish.image}>`와 같이 코드를 작성하면 `foodILike`에 있는 데이터 순서대로 `props`로 데이터를 전달해 `Food` 컴포넌트가 순서대로 생성되는 것을 볼 수 있습니다.
+- Component를 반복적으로 생성할 때 `key`를 props로 넘겨주어 구분짓는 것이 좋습니다.
