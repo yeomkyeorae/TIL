@@ -177,3 +177,32 @@ export default App;
 - 먼저 `HTML`에 `javascript`코드를 활용하기 위해 {}을 생성합니다.
 - 그리고 `foodILike`에 `map`을 적용해 내부 함수에 `<Food name={dish.name} picture={dish.image}>`와 같이 코드를 작성하면 `foodILike`에 있는 데이터 순서대로 `props`로 데이터를 전달해 `Food` 컴포넌트가 순서대로 생성되는 것을 볼 수 있습니다.
 - Component를 반복적으로 생성할 때 `key`를 props로 넘겨주어 구분짓는 것이 좋습니다.
+
+
+
+### 4. PropTypes
+
+Prop으로 전달되는 데이터의 타입, 필수 유무, 이름 등을 확인할 수 있게 도와줍니다.
+
+> 설치
+
+```bash
+$ npm i prop-types
+```
+
+아래와 같은 형식으로 사용할 수 있습니다.
+
+```javascript
+import PropTypes from 'prop-types';
+
+// ...
+
+Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired
+}
+```
+
+`isRequired`를 삭제하여 해당 props가 필수가 아님을 명시해 줄 수 있습니다. `propTypes`와 다른 형식이 접근해오면 console 상에서 오류 메세지를 띄워주게 됩니다. 
+
