@@ -206,3 +206,36 @@ Food.propTypes = {
 
 `isRequired`를 삭제하여 해당 props가 필수가 아님을 명시해 줄 수 있습니다. `propTypes`와 다른 형식이 접근해오면 console 상에서 오류 메세지를 띄워주게 됩니다. 
 
+
+
+## 3. State
+
+ State는 보통 우리가 동적 데이터와 함께 작업할 때 만들어진다. 즉, 변하는 데이터, 현재는 존재하지 않는 데이터. 생겨나고 사라지고 ... `dynamic data`.
+
+ `Function component`는 function이고 뭔가를 return하고 screen에 표시된다. `class component`는 class이고 react component로 부터 확장되고 screen에 표시된다. render 메소드를 필요로 한다.
+
+> Why?
+
+class component는 `state`를 갖고 있다. `state`는 `object`이고 변하는 data를 가질 수 있다. `state`는 `class component`에 표현하며 다음과 같이 나타낼 수 있다.
+
+```javascript
+class App extends React.Component{
+  state = {
+    count: 0
+  };
+  add = () => {console.log('add')};
+  minus = () => {console.log('minus')};
+  render() {
+    return (
+    <div>
+      <h1>The number is {this.state.count}</h1>
+      <button onClick={this.add}>Add</button>
+      <button onClick={this.minus}>Minus</button>
+    </div>
+    )
+  }
+}
+```
+
+- `state`나 `정의한 함수`를 `render` 내부에서 접근할 때는 `this`를 사용한다.
+- `class component`는 `React.Component`를 `extends`한다.
