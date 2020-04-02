@@ -214,7 +214,7 @@ Food.propTypes = {
 
  `Function component`는 function이고 뭔가를 return하고 screen에 표시된다. `class component`는 class이고 react component로 부터 확장되고 screen에 표시된다. render 메소드를 필요로 한다.
 
-> Why?
+### 1. Why?
 
 class component는 `state`를 갖고 있다. `state`는 `object`이고 변하는 data를 가질 수 있다. `state`는 `class component`에 표현하며 다음과 같이 나타낼 수 있다.
 
@@ -239,3 +239,24 @@ class App extends React.Component{
 
 - `state`나 `정의한 함수`를 `render` 내부에서 접근할 때는 `this`를 사용한다.
 - `class component`는 `React.Component`를 `extends`한다.
+
+### 2. 알아야할 점
+
+```javascript
+add = () => { this.setState(current => ({count: current.count + 1}))};
+minus = () => { this.setState(current => ({count: current.count - 1}))};
+```
+
+- `state`를 `set`하고 직접적으로 `state`를 바꾸려고 하면 안된다.
+- 대신, `setState`에 함수를 사용한다.
+- 매 순간 `setState`를 호출할 때 마다 react는 `새로운 state`와 함께 `render function`을 호출한다.
+
+### 3. Component Life Cycle
+
+> Mounting
+
+`render`되기 전에 `constructor()`등 함수를 호출한다. `componentDidMount()`
+
+> Updating
+
+`render`된 이후 `state`가 업데이트될 때 마다 특정 함수들을 호출한다. `componentDidUpdate()`
