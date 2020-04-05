@@ -39,3 +39,68 @@ class App extends React.Component{
 
 - `axios.get(URL)` 요청을 하는 `getMovies` 함수을 만들었습니다. `axios` 요청은 `response`를 받는 데 시간이 걸리므로 이를 기다려줄 필요가 있습니다.
 - `async` 선언으로 비동기 함수(참을성을 기를 필요 있는 함수)임을 알려주고, 그 대상인 `axios`임을 `await`로 알려줍니다.
+
+
+
+> setState data 및 data별 component 생성
+
+```javascript
+// App.js
+import React from 'react';
+import axios from "axios";
+import Movie from "./Movie";
+
+class App extends React.Component{
+  state = {
+    isLoading: true,
+    movies: []
+  };
+  getMovies = async () => {
+    const {
+      data: {
+        data: { movies }
+      }
+    } = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
+    this.setState({ movies, isLoading: false }) // state의 movies와 axios의 movies를 동시에 인식할 수 있다.
+  }
+  componentDidMount() {
+    this.getMovies();
+  }
+  render (){
+    const { isLoading, movies } = this.state;
+    return <div>{isLoading ? "Loading..." : movies.map(movie => {
+      return (
+        <Movie 
+          key={movie.id}
+          id={movie.id} 
+          year={movie.year} 
+          title={movie.title} 
+          summary={movie.summary} 
+          poster={movie.medium_cover_image}
+        />
+      );
+    })}</div>
+  }
+}
+```
+
+```javascript
+// Movie.js
+import React from "react";
+import PropTypes from 'prop-types';
+
+function Movie({id, year, title, summary, poster}) {
+    return <h5>{title}</h5>
+}
+
+Movie.propTypes = {
+    id: PropTypes.number.isRequired,
+    year: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired
+}
+
+export default Movie;
+```
+
