@@ -104,3 +104,8 @@ Movie.propTypes = {
 export default Movie;
 ```
 
+
+
+## 2. styling components
+
+Component를 CSS로 꾸밀 경우에 `.css` 파일을 만들고 class를 사용하자!
