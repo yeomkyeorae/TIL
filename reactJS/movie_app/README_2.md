@@ -109,3 +109,31 @@ export default Movie;
 ## 2. styling components
 
 Component를 CSS로 꾸밀 경우에 `.css` 파일을 만들고 class를 사용하자!
+
+
+
+## 3. Adding genres
+
+>  `ES6`에서 제공하는 `map`에는 `index` 기능을 제공한다.
+
+ ```javascript
+<ul className="genres">
+  {genres.map((genre, index)=> (
+    <li key={index} className="genres__genre">{genre}</li>
+  ))}
+</ul>
+ ```
+
+`key` 값을 넣어줘야 하지만 마땅한 값이 없을 때 이 `index`를 사용할 수 있다.
+
+
+
+> `JSX`에서는 HTML코드가 아니다. `JSX`에서 `class` 이름을 명시하고자 할 때는 `class` 대신 `className`을 사용한다.
+
+```javascript
+<div className="loader">
+  <span className="loader__text">Loading...</span>
+</div>
+```
+
+또한, `<label for ... >`처럼 `for`를 사용하고자 할 때는 `HTMLfor`를 사용한다.
