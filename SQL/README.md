@@ -180,7 +180,7 @@ SELECT ANIMAL_ID, NAME FROM ANIMAL_INS WHERE NAME LIKE '%EL%' AND ANIMAL_TYPE LI
 
 ### 9. 중성화 여부 파악하기
 
-동물의 아이디, 이름, 중서화 여부를 아디시 순으로 조회하는 SQL
+동물의 아이디, 이름, 중성화 여부를 아이디 순으로 조회하는 SQL
 
 ```sql
 SELECT ANIMAL_ID, NAME, (CASE WHEN (SEX_UPON_INTAKE LIKE '%INTACT%') THEN 'X' ELSE 'O' END) as '중성화' FROM ANIMAL_INS ORDER BY ANIMAL_ID ASC;
