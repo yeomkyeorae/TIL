@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 node_modules
+=======
+yarn.lock
+package-lock.json
+
+>>>>>>> 8ef02ad56c62fdf9308e1ba497c73e65bc8979fe
 vue/package-lock.json
 # Created by https://www.gitignore.io/api/python,pycharm,visualstudiocode,jupyternotebooks
 # Edit at https://www.gitignore.io/?templates=python,pycharm,visualstudiocode,jupyternotebooks
