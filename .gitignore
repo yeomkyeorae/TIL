@@ -1,3 +1,4 @@
+node_modules
 vue/package-lock.json
 # Created by https://www.gitignore.io/api/python,pycharm,visualstudiocode,jupyternotebooks
 # Edit at https://www.gitignore.io/?templates=python,pycharm,visualstudiocode,jupyternotebooks
@@ -18,6 +19,7 @@ vue/package-lock.json
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
+.idea
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
@@ -178,6 +180,7 @@ ipython_config.py
 
 # pyenv
 .python-version
+venv
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.

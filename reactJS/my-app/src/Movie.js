@@ -2,6 +2,7 @@ import React from 'react';
 import './Movie.css';
 
 function Movie() {
+    console.log(this.props)
     return (
         <div>
             <MoviePoster />
