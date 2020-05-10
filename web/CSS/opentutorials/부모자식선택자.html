@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Html</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+    </ul>
+    <ol id="lecture">
+        <li>Html</li>
+        <li>CSS
+            <ol>
+                <li>selector</li>
+                <li>declaration</li>
+            </ol>
+        </li>
+        <li>Javascript</li>
+    </ol>
+</body>
+<style>
+    ul li {
+        color: red;
+    }
+    #lecture > li {
+        border: 1px solid green;
+    }
+    ul, ol {
+        background-color: skyblue;
+    }
+</style>
+</html>
