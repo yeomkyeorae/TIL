@@ -40,7 +40,7 @@ function drawKeypoints()  {
     // For each pose detected, loop through all the keypoints
     let pose = poses[i].pose;
 
-    // console.log('nose: ', pose.nose.x, pose.nose.y)
+    console.log('nose: ', pose.nose.x, pose.nose.y)
 
     for (let j = 0; j < pose.keypoints.length; j++) {
       // A keypoint is an object describing a body part (like rightArm or leftShoulder)
