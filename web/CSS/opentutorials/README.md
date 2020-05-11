@@ -26,3 +26,31 @@ ul, ol {
 }
 ```
 
+
+
+## 2. 가상 클래스 선택자
+
+~~~css
+a:link {
+  color: blue;
+}
+a:visited {
+  color: red;
+}
+a:hover {
+  color:yellow;
+}
+a:active {
+  color: green;
+}
+a:focus {
+  color: white;
+}
+~~~
+
+- link: 방문한 적이 없는 링크
+- visited: 방문한 적이 있는 링크
+- hover: 마우스를 올려놓았을 때 
+- active: 마우스를 클릭했을 때
+- focus: `tab` 등으로 포커싱 되었을 때
+
