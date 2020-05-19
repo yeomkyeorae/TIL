@@ -638,6 +638,8 @@ JWT는 Header, Payload, Signature의 3부분으로 이루어진다.
 
 ### CORS
 
+ 도메인 또는 포트가 다른 서버의 자원을 요청하는 매커니즘.
+
  CORS(Cross-origin Resource Sharing)은 추가적인 HTTP Header를 사용해서 어플리케이션이 다른 origin의 리소스에 접근할 수 있도록 하는 메커니즘을 말합니다. 하지만 다른 origin에서 내 리소스에 함부로 접근하지 못하게 하기 위해 사용된다.
 
 >  요청 헤더 목록
