@@ -99,6 +99,27 @@ console.log(str2.concat(', ', str1));
 // "World, Hello"
 ```
 
+### String.indexOf()
+
+```javascript
+'Blue Whale'.indexOf('Blue');		// returns 0
+'Blue Whale'.indexOf('Blute');		// returns -1
+'Blue Whale'.indexOf('Whale', 0);	// returns 5
+'Blue Whale'.indexOf('Whale', 5);	// returns 5
+'Blue Whale'.indexOf('Whale', 7);	// returns -1
+'Blue Whale'.indexOf('');			// returns 0
+'Blue Whale'.indexOf('', 9);		// returns 9
+'Blue Whale'.indexOf('', 10);		// returns 10
+'Blue Whale'.indexOf('', 11);		// returns 10
+```
+
+> 존재 여부 확인(임의의 문자열에 특정 문자열이 있는지 확인)
+
+```javascript
+'Blue Whale'.indexOf('Blue') !== -1; // true
+'Blue Whale'.indexOf('Bloo') !== -1; // false
+```
+
 
 
 ## ES6
