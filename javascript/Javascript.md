@@ -10,6 +10,32 @@ console.log(arr.toString());
 // "1,2,3"
 ```
 
+> Iteration
+
+```javascript
+const arr = [1, 3, 6, 9];
+
+// for in ( => index)
+for(let something in arr) {
+    console.log(something);
+    // 0, 1, 2, 3
+}
+
+// for of ( => value)
+for(let something of arr) {
+	console.log(something);
+    // 1, 3, 6, 9
+}
+
+// for of with entries ( => index, value)
+for(let [something, anything] of arr.entries()) {
+	console.log(something, anything)
+    // 0 1, 1 3, 2 6, 3, 9
+}
+```
+
+
+
 ### Array.prototype.slice()
 
 ```javascript
@@ -249,5 +275,24 @@ bindFunc1(5, 6, 7, 8);	// {x: 1} 5 6 7 8
 var bindFunc2 = func.bind({x: 1}, 4, 5);
 bindFunc2(6, 7);	// {x: 1} 4 5 6 7
 bindFunc2(8, 9);	// {x: 1} 4 5 8 9
+```
+
+
+
+## JSON parse, stringify
+
+> parse: JSON 문자열을 JS 값이나 객체로 변환
+
+```javascript
+const json = '{"result": true, "count": 42}';
+const obj = JSON.parse(json);
+// 객체 생성
+```
+
+> stringify: JS 값이나 객체를 JSON 문자열로 변환
+
+```javascript
+console.log(JSON.stringify({x: 5, y: 7}));
+// "{"x": 5, "y": 6}"
 ```
 
