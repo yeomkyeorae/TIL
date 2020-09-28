@@ -239,6 +239,162 @@ $ docker run -d --name client-app -p 3000:80 nginx-react:0.1
 
 
 
+## 전체 구성 예시
+
+> root
+
+- docker-compose.yml
+
+  ```yaml
+  version: "3"
+  services:
+    api-server:                          
+      build:
+        dockerfile: Dockerfile
+        context: ./build    
+      # volumes:
+      #   - ./server/:/app      
+      #   - /app/node_modules      
+      environment:
+        - NODE_PATH=src
+        - DB_HOST=mariadb
+        - DB=test
+        - REDIS_HOST=redis
+        - REDIS_PORT=6379
+      networks:
+        - backend
+      links:
+        - mariadb
+        - redis
+      depends_on:
+        - mariadb
+        - redis 
+      ports:
+        - "10010:10010"
+    
+    mariadb:
+      container_name: mariadb
+      image: mariadb:10.5
+      environment:
+        - MYSQL_ROOT_PASSWORD=""
+      ports:
+        - "3307:3306"
+      networks:
+        - backend 
+      # volumes:
+      #   - /Users/aaaa/con_volumes/mariadb/data:/var/lib/mysql
+      #   - /Users/aaaa/con_volumes/mariadb/conf.d:/etc/mysql/conf.d
+      restart: always
+  
+    redis:
+      container_name: redis
+      image: redis
+      environment:
+        # - ALLOW_EMPTY_PASSWORD=yes
+        - REQUIREPASS=0000
+      networks:
+        - backend 
+      # volumes:
+      #   - data:/data/redis
+      command: redis-server --requirepass 0000
+      ports:
+        - "6380:6379"
+      restart: always   
+    
+    nginx:
+      restart: always
+      build:
+        dockerfile: Dockerfile
+        context: ./
+      ports:
+        - '3000:80'
+      networks:
+        - backend
+      
+  networks: 
+    backend:
+      driver: bridge
+  
+  # volumes:
+  #   data:
+  #     driver: local  
+  ```
+
+- Dockerfile
+
+  ```dockerfile
+  FROM nginx
+  
+  # root 에 app 폴더를 생성
+  RUN mkdir /app
+  
+  # work dir 고정
+  WORKDIR /app
+  
+  # work dir 에 build 폴더 생성 /app/build
+  RUN mkdir ./build
+  
+  # host pc의 현재경로의 build 폴더를 workdir 의 build 폴더로 복사
+  ADD ./dist ./build
+  
+  # nginx 의 default.conf 를 삭제
+  RUN rm /etc/nginx/conf.d/default.conf
+  
+  # host pc 의 nginx.conf 를 아래 경로에 복사
+  COPY ./nginx.conf /etc/nginx/conf.d
+  
+  # 80 포트 오픈
+  EXPOSE 80
+  
+  # container 실행 시 자동으로 실행할 command. nginx 시작함
+  CMD ["nginx", "-g", "daemon off;"]
+  
+  ```
+
+- nginx.conf
+
+  ```
+  upstream api {
+    server localhost:10010;
+  }
+  
+  server {
+    listen 80;
+    server_name localhost;
+  
+    location / {
+      root    /app/build;
+      index   index.html;
+      try_files $uri $uri/ /index.html;
+    }
+  
+    location /api {
+      rewrite /api/(.*) /$1 break;
+      proxy_pass http://api;
+    }
+  }
+  ```
+
+- build
+
+  - src
+
+  - Dockerfile
+
+    ```dockerfile
+    FROM node:12.18.3-alpine
+    WORKDIR '/app'
+    COPY ./package.json ./
+    RUN npm install
+    COPY . .
+    EXPOSE 10010
+    CMD ["npm", "run", "start-local"]
+    ```
+
+- dist
+
+
+
 ## 참고
 
 https://subicura.com/categories/
@@ -250,3 +406,9 @@ https://hello-bryan.tistory.com/169
 https://mia-dahae.tistory.com/31
 
 https://programmingsummaries.tistory.com/392
+
+https://codechacha.com/ko/dockerizing-react-with-nginx/
+
+https://javaexpert.tistory.com/m/1013
+
+https://dev-in-gym.tistory.com/m/16?category=937318
