@@ -397,18 +397,31 @@ $ docker run -d --name client-app -p 3000:80 nginx-react:0.1
 
 ## 참고
 
-https://subicura.com/categories/
+https://subicura.com/categories/ (초보를 위한 도커 안내서)
 
-https://medium.com/withj-kr/tagged/docker
+https://niceman.tistory.com/36 (Centos7 Docker 설치 및 실행 방법)
 
-https://hello-bryan.tistory.com/169
+https://medium.com/withj-kr/tagged/docker (도커부터 쿠버네티스까지)
 
-https://mia-dahae.tistory.com/31
+https://hello-bryan.tistory.com/169 (Docker Nginx에 React 띄어서 배포*)
 
-https://programmingsummaries.tistory.com/392
+https://codechacha.com/ko/dockerizing-react-with-nginx/ (React와 Nginx를 Dockerinzing하는 방법)
 
-https://codechacha.com/ko/dockerizing-react-with-nginx/
+https://mia-dahae.tistory.com/31 (Multiple Service를 dockerizing 해보자01)
 
-https://javaexpert.tistory.com/m/1013
+https://programmingsummaries.tistory.com/392 (node.js를 위한 Dockerfile 작성하기)
 
-https://dev-in-gym.tistory.com/m/16?category=937318
+https://javaexpert.tistory.com/m/1013 (React, MongoDB, Express, Nginx 도커 개발 환경 구성하기)
+
+https://dev-in-gym.tistory.com/m/16?category=937318 (node, redis 연동 오류 해결 팁)
+
+https://snowdeer.github.io/docker/2018/02/14/docker-push-image-to-docker-hub/ (Docker Hub에 이미지 업로드)
+
+https://phoenixnap.com/kb/install-docker-compose-centos-7 (Installing Docker Compose on Centos7)
+
+https://eyeballs.tistory.com/49 (docker exec)
+
+https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose#version (도커 컴포즈를 활용하여 완벽한 개발 환경 구성하기)
+
+https://stackoverflow.com/questions/37459031/connecting-to-a-docker-compose-mysql-container-denies-access-but-docker-running ("mypassword" -> mypassword)
+
