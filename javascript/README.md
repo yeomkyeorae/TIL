@@ -44,3 +44,15 @@ LetFunction()
 
 ## 2. Hoisting
 
+## 3. Array
+### (1) Array.from 메소드
+유사 배열 객체나 반복 가능한 객체를 얕게 복사해서 새로운 Array 객체를 만든다.
+
+예시)
+```javascript
+console.log(Array.from('foo'));
+// expected output: Array ["f", "o", "o"]
+
+console.log(Array.from([1, 2, 3], x => x + x));
+// expected output: Array [2, 4, 6]
+```
