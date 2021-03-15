@@ -56,3 +56,11 @@ console.log(Array.from('foo'));
 console.log(Array.from([1, 2, 3], x => x + x));
 // expected output: Array [2, 4, 6]
 ```
+
+## 4. Operator
+### (1) ??
+`??` 조건식 왼쪽에 있는 값이 `null` 이나 `undefined`일 경우 `??` 조건식 오른쪽 있는 값을 반환. 아닐 경우는 `??` 조건식 왼쪽에 있는 값을 반환
+```javascript
+const value = null ?? 10;   // value: 10
+const value2 = 100 ?? 10;   // value: 100
+```
