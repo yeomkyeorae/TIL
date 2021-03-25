@@ -220,3 +220,6 @@ ROW_NUMBER()
 SELECT num, name, job, salaly, ROW_NUMBER() OVER(PARTITION BY job ORDER BY salary) AS rank FROM table;
 ```
 Job을 기준으로 그룹을 정하고, salary를 기준으로 순위를 매기고, 각각 행에 ROW_NUMBER를 부여한다.
+
+# 3. 참고 사이트
+[ERD 표기법](https://bamdule.tistory.com/46)
