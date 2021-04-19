@@ -241,4 +241,6 @@ node_modules/
 # Ignore all local history of files
 .history
 
+.DS_Store
+
 # End of https://www.gitignore.io/api/python,pycharm,visualstudiocode,jupyternotebooks
