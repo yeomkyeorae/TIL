@@ -136,33 +136,67 @@ h1, h2, h3, h4, h5, h6, .goldenrod {
 
 ![03_unit.html](./images/c.PNG)
 
+
+
 ```css
-/* rem
+/* rem(relative to "root" element)
 	root 요소의 배수
-	html : 16px (브라우저 기본)
+	=> html : 16px(브라우저 기본)
 	2rem -> 32px (16 * 2)
 */
 ol, ol li {
   font-size: 2rem;
 }
 
-/* em
+/* em: 부모의 폰트 크기에 상대적으로 결정(relative to parent element)
 	상위 요소의 배수
 	html : 16px
 	ul : 2em -> 32px
 	li : 원래 ul 밑에 있어서 32px
-		2em -> 32px * 2 = 64px
+		2em -> 32px * 2 = 64px(부모인 ul가 32px이므로 2배인(2em) 64px이 된다)
+		%와 같은 개념(2em === 200%).
 */
 ul, ul li {
   font-size: 2em;
 }
 
+/*
+	vw: viewport의 width
+	10vw면 viewport width 크기의 10%만 사용하겠다
+*/
 .vw {
   font-size: 10vw;
 }
 
+/*
+	vh: viewport의 height
+	10vh면 viewport height 크기의 10%만 사용하겠다
+*/
 .vh {
   font-size: 10vh;
+}
+
+/*
+	vmax: viewport width, height 중 더 큰 값을 기준으로 삼는다
+	10vmax면 width, height 중 더 큰 값의 10%
+*/
+.vmax {
+  font-size: 10vmax;
+}
+
+/*
+	vmin: viewport width, height 중 더 작은 값을 기준으로 삼는다
+	10vmin면 width, height 중 더 작은 값의 10%
+*/
+.vmin {
+  font-size: 10vmin;
+}
+
+/*
+	%: 부모 크기의 해당 %만큼
+*/
+.percent {
+  font-size: 10%;
 }
 
 .div-vw {

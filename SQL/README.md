@@ -1,6 +1,6 @@
 # SQL
 
-프로그래머스 코딩테스트 연습 문제 중 SQL과 관련된 문항들입니다.
+# 1. 프로그래머스 코딩테스트 연습 문제 중 SQL과 관련된 문항들
 
 ## Level 1
 
@@ -211,3 +211,15 @@ WHERE ANIMAL_INS.ANIMAL_ID IS NULL
 ORDER BY ANIMAL_ID ASC;
 ```
 
+# 2. 생소한 쿼리
+### 1. 그룹별로 순위 매긴 결과 조회
+ROW_NUMBER()
+
+예시)
+```sql
+SELECT num, name, job, salaly, ROW_NUMBER() OVER(PARTITION BY job ORDER BY salary) AS rank FROM table;
+```
+Job을 기준으로 그룹을 정하고, salary를 기준으로 순위를 매기고, 각각 행에 ROW_NUMBER를 부여한다.
+
+# 3. 참고 사이트
+[ERD 표기법](https://bamdule.tistory.com/46)
