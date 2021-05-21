@@ -4,6 +4,7 @@ node_modules
 yarn.lock
 package-lock.json
 DS_Store
+.vscode
 
 >>>>>>> 8ef02ad56c62fdf9308e1ba497c73e65bc8979fe
 vue/package-lock.json

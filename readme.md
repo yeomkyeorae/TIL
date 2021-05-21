@@ -6,58 +6,58 @@
 
 ## 카테고리
 
-**CS**
+**[CS]**
 
 ​	Computer Science 관련 지식
 
-**deepLearning**
+**[deepLearning]**
 
 ​	[밑바닥부터 시작하는 딥러닝1, 2] 도서, posenet
 
-**deploy**
+**[deploy]**
 
 ​	배포 관련 정리 사항
 
-**docker**
+**[docker]**
 
 ​	docker 명령어 정리
 
-**git**
+**[git]**
 
 ​	git 명령어 정리
 
-**javascript**
+**[javascript]**
 
 ​	javascript 개념 및 실습 내용
 
-**Linux**
+**[Linux]**
 
 ​	linux 명령어 정리
 
-**python**
+**[python]**
 
 ​	python 개념 및 실습 내용
 
-**reactJS**
+**[reactJS]**
 
 ​	reactJS 개념 및 실습 내용
 
-**SQL**
+**[SQL]**
 
 ​	SQL query 내용 정리
 
-**test-tool**
+**[test-tool]**
 
 ​	테스트 관련 툴 정리 
 
-**vue**
+**[vue]**
 
 ​	vueJS 개념 및 실습 내용
 
-**web**
+**[web]**
 
 ​	HTML, CSS 등 내용 정리
 
-**webpack**
+**[webpack]**
 
 ​	웹팩 개념 및 실습 내용
