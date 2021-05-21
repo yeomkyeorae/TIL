@@ -1,4 +1,5 @@
 # 리눅스 명령어
+
 **CentOS와 Ubuntu 사이에 차이가 있을 수 있음을 인지하자.**
 
 ### 1. netstat(network statistics)
@@ -31,7 +32,8 @@ System clock synchronized: yes
 $ timedatectl list-timezones
 $ sudo timedatectl set-timezone Asia/Seoul
 ```
-# vi/vim 명령어
+## vi/vim 명령어
+
 ### 1. 검색
 - 문자열 단순 검색: `/` 입력 후 원하는 문자열 검색한다.
 - 맨 첫 줄로 이동: 소문자 `gg`를 입력한다.
