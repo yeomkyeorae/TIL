@@ -8,3 +8,18 @@ DATE(date, INTERVAL value interval)
 ```sql
 select * from tmp where \`time\` > date_sub(now(), interval 20 second);
 ```
+
+### REPLACE
+REPLACE(input_string, substring, new_substring)로 사용. input_string에서 substring에 해당하는 문자를 new_substring으로 대체
+> 예시
+```sql
+SELECT 
+    REPLACE(
+        'It is a lion!', 
+        'lion', 
+        'tiger'
+    ) result;
+```
+> result
+
+It is a tiger! 
