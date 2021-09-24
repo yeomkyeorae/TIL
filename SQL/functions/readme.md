@@ -23,3 +23,13 @@ SELECT
 > result
 
 It is a tiger! 
+
+### TO_DAYS
+0년도 부터 해당 날짜까지 몇 개의 day가 있는지 반환
+> 예시
+```sql
+SELECT TO_DAYS("2021-09-24"); 
+```
+> result
+
+738340
