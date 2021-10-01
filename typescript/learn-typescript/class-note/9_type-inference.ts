@@ -37,4 +37,4 @@ const detailed: DetailedDropdown<string> = {
 
 // Best Common Type: 가장 근접한 타입을 추론
 // string | number | boolean
-const arr = [1, 2, true, 'str'];
+const array = [1, 2, true, 'str'];
