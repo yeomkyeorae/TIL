@@ -56,3 +56,37 @@ type UpdateProduct = Partial<Product>;
 function updateProductItem(productItem: UpdateProduct) {
 
 }
+
+// 4. 유틸리티 타입 구현하기 - Partial
+interface UserProfile {
+    username: string;
+    email: string;
+    profilePhotoUrl: string;
+}
+// * UserProfile interface를 재활용해 아래 UserProfileUpdate 타입을 정의할 수 있다.
+// interface UserProfileUpdate {
+//     username?: string;
+//     email?: string;
+//     profilePhotoUrl?: string;
+// }
+// # 1단계
+type UserProfileUpdate = {
+    username?: UserProfile['username'];
+    email?: UserProfile['email'];
+    profilePhotoUrl?: UserProfile['profilePhotoUrl'];
+}
+// # 2단계 - 1단계의 축약(Mapped 타입)
+type UserProfileUpdate2 = {
+    [p in 'username' | 'email' | 'profilePhotoUrl']?: UserProfile[p]
+}
+type UserProfileKeys = keyof UserProfile
+
+// # 3단계 - keyof 사용
+type UserProfileUpdate3 = {
+    [p in keyof UserProfile]?: UserProfile[p]
+}
+
+// # 4단계 - generic 사용 => Partial 구현 형태와 동일
+type Subset<T> = {
+    [p in keyof T]?: T[p]
+}
