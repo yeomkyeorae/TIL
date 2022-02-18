@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { Chart } from 'chart.js';
+
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -7,7 +10,7 @@ function getUnixTimestamp(date: Date) {
 }
 
 // DOM
-let a: Element | HTMLElement | HTMLParagraphElement; // 위계 존재
+// let a: Element | HTMLElement | HTMLParagraphElement; // 위계 존재
 const confirmedTotal = $('.confirmed-total') as HTMLSpanElement;
 const deathsTotal = $('.deaths') as HTMLParagraphElement;
 const recoveredTotal = $('.recovered') as HTMLParagraphElement;
