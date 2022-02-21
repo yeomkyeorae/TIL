@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { Chart } from 'chart.js';
 
 // utils
@@ -40,8 +40,15 @@ function createSpinnerElement(id: string) {
 let isDeathLoading = false;
 const isRecoveredLoading = false;
 
+interface ConvidSummaryResponse {
+  Countries: any[];
+  Date: string;
+  Global: any;
+  Message: string;
+}
+
 // api
-function fetchCovidSummary() {
+function fetchCovidSummary(): Promise<AxiosResponse<ConvidSummaryResponse>> {
   const url = 'https://api.covid19api.com/summary';
   return axios.get(url);
 }
