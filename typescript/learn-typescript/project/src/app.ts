@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { Chart } from 'chart.js';
 // 타입 모듈
-import { ConvidSummaryResponse } from './covid/index';
+import { ConvidSummaryResponse, CountrySummaryResponse } from './covid/index';
 
 // utils
 function $(selector: string) {
@@ -47,9 +47,6 @@ function fetchCovidSummary(): Promise<AxiosResponse<ConvidSummaryResponse>> {
   const url = 'https://api.covid19api.com/summary';
   return axios.get(url);
 }
-fetchCovidSummary().then((res: any) => {
-  console.log(res.Coutry);
-});
 
 enum CovidStatus {
   Confirmed = 'confirmed',
@@ -57,7 +54,10 @@ enum CovidStatus {
   Deaths = 'deaths',
 }
 
-function fetchCountryInfo(countryCode: string, status: CovidStatus) {
+function fetchCountryInfo(
+  countryCode: string,
+  status: CovidStatus
+): Promise<AxiosResponse<CountrySummaryResponse>> {
   // status params: confirmed, recovered, deaths
   const url = `https://api.covid19api.com/country/${countryCode}/status/${status}`;
   return axios.get(url);
@@ -215,7 +215,7 @@ function setChartData(data: any) {
   renderChart(chartData, chartLabel);
 }
 
-function setTotalConfirmedNumber(data: any) {
+function setTotalConfirmedNumber(data: ConvidSummaryResponse) {
   confirmedTotal.innerText = data.Countries.reduce(
     (total: any, current: any) => (total += current.TotalConfirmed),
     0
