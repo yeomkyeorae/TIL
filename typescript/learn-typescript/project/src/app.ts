@@ -1,5 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { Chart } from 'chart.js';
+// 타입 모듈
+import { ConvidSummaryResponse } from './covid/index';
 
 // utils
 function $(selector: string) {
@@ -39,13 +41,6 @@ function createSpinnerElement(id: string) {
 // state
 let isDeathLoading = false;
 const isRecoveredLoading = false;
-
-interface ConvidSummaryResponse {
-  Countries: any[];
-  Date: string;
-  Global: any;
-  Message: string;
-}
 
 // api
 function fetchCovidSummary(): Promise<AxiosResponse<ConvidSummaryResponse>> {
