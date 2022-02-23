@@ -21,14 +21,14 @@ interface Global {
   TotalRecovered: number;
 }
 
-export interface ConvidSummaryResponse {
+export interface CovidSummaryResponse {
   Countries: Country[];
   Date: string;
   Global: Global;
   Message: string;
 }
 
-interface CountrySummaryInfo {
+export interface CountrySummaryInfo {
   Cases: number;
   City: string;
   CityCode: string;
