@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Way Data Binding with JavaScript</title>
+</head>
+<body>
+    Name: <input type="text" id="nameInput">
+
+    <script>
+        const nameInput = document.getElementById("nameInput");
+        const formObject = {};
+
+        Object.defineProperty(formObject, "name", {
+            get() { // input에 입력한 값을 console 창에서 formObject.name으로 출력 가능
+                return nameInput.value;
+            },
+            set(newValue) { // formObject.name에 값을 할당해 input 입력 값을 변경할 수 있음
+                nameInput.value = newValue;
+            }
+        });
+    </script>
+</body>
+</html>
