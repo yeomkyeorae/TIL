@@ -23,6 +23,7 @@ module.exports = {
         arrowParens: 'avoid',
       },
     ],
+    '@typescript-eslint/no-var-requires': 0,
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',
