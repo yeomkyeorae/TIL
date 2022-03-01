@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style media="screen">
+    input, button {
+        padding: 7px;
+        height: 40px;
+    }
+    fieldset {
+        margin-bottom: 20px;
+    }
+</style>
+<body>
+    <h2 id="title">Local Storage</h2>
+    <fieldset>
+        <legend>Insert Data</legend>
+        <input id="inpKey" type="text" placeholder="Enter Key">
+        <input id="inpValue" type="text" placeholder="Enter Value">
+        <button id="btnInsert" type="button">Insert Data</button>
+    </fieldset>
+    <fieldset>
+        <legend>Local Storage</legend>
+        <div id="lsOutput">
+            
+        </div>
+    </fieldset>
+</body>
+<script type="text/javascript">
+    // reference: https://www.youtube.com/watch?v=k8yJCeuP6I8 by dcode
+
+    const inpKey = document.getElementById('inpKey');
+    const inpValue = document.getElementById('inpValue');
+    const btnInsert = document.getElementById('btnInsert');
+    const lsOutput = document.getElementById('lsOutput');
+
+    btnInsert.onclick = function () {
+        const key = inpKey.value;
+        const value = inpValue.value;
+
+        if(key && value) {
+            localStorage.setItem(key, value);
+            location.reload();
+        }
+    }
+
+    for(let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+
+        lsOutput.innerHTML += `${key}: ${value} <br />`;
+    }
+
+    // key, value 모두 string
+    // localStorage.setItem("name", "yeom");   // setItem: key, value로 저장
+    // localStorage.removeItem("name");        // removeItem: key로 item 삭제
+
+    // localStorage.setItem("name", "koke");
+    // localStorage.setItem("age", 50);           // 자동 string으로 저장됨
+    // const name = localStorage.getItem("name")  // getItem: key로 value 얻음
+
+    // console.log(localStorage.key(1));          // key: index로 접근해 key 값 얻음
+
+    
+</script>
+</html>
