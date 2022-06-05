@@ -1,3 +1,8 @@
+import NavBar from "../components/NavBar";
+
 export default function Potato() {
-    return "we are all potatoes";
+    return <div>
+        <NavBar />
+        Potatoes!!!
+    </div>
 }
