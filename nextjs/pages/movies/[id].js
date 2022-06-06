@@ -1,11 +1,11 @@
 import { useRouter } from "next/router"
 
 export default function Detaul() {
-    const router = useRouter();
+  const router = useRouter();
 
-    return (
-        <div>
-            {router.query.id}
-        </div>
-    )
+  return (
+    <div>
+      <h4>{router.query.title || "Loading..."}</h4>
+    </div>
+  );
 }
