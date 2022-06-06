@@ -1,5 +1,9 @@
+import Seo from "../components/Seo"
+
 export default function Potato() {
-    return <div>
-        Potatoes!!!
+  return (
+    <div>
+      <Seo title={"About"} />
     </div>
+  );
 }
