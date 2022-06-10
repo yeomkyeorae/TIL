@@ -25,7 +25,7 @@ const useInput = (initialValue, validator) => {
 
 
 // functional component
-function App() {
+function UseInput() {
   const maxLength = (value) => value.length < 10;
   const haveAt = (value) => !value.includes("@");
 
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default UseInput;
