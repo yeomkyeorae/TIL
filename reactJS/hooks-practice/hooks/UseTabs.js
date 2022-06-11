@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 
 
 const content = [
@@ -28,7 +27,7 @@ const useTabs = (initialTab, allTabs) => {
 
 
 // functional component
-function App() {
+function UseTabs() {
   const { currentItem, changeItem } = useTabs(0, content);
 
   return (
@@ -43,4 +42,4 @@ function App() {
   );
 }
 
-export default App;
+export default UseTabs;
