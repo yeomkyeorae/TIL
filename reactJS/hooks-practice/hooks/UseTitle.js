@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+
 
 const useTitle = (initialTitle) => {
   const [title, setTitle] = useState(initialTitle);
@@ -14,7 +14,7 @@ const useTitle = (initialTitle) => {
 }
 
 // functional component
-function App() {
+function UseTitle() {
   const titleUpdater = useTitle("Loading...");
 
   setTimeout(() => titleUpdater("Home"), 5000);
@@ -26,4 +26,4 @@ function App() {
   );
 }
 
-export default App;
+export default UseTitle;
