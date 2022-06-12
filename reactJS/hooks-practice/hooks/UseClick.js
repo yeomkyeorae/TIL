@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import './App.css';
 
 
 const useClick = (ref, onClick) => {
@@ -21,7 +20,7 @@ const useClick = (ref, onClick) => {
 
 
 // functional component
-function App() {
+function UseClick() {
   const sayHello = () => console.log("say Hello");
   const title = useRef();
   useClick(title, sayHello);
@@ -33,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default UseClick;
