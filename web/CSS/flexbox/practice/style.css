@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 350px;
+}
+
+.box1 {
+    background-color: #2980b9;
+}
+
+.box2 {
+    background-color: #16a085;
+}
+
+.box3 {
+    background-color: #e74c3c;
+}
