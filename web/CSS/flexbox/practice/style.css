@@ -1,13 +1,13 @@
 .container {
     display: flex;
     height: 100vh;
-    flex-wrap: wrap;
-    align-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
 .item {
-    width: 800px;
-    /* height: 100px; */
+    width: 100px;
+    height: 100px;
 }
 
 .box1 {
@@ -16,6 +16,7 @@
 
 .box2 {
     background-color: #16a085;
+    order: -1;
 }
 
 .box3 {
