@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lilita One", cursive;
+  background-color: #d35400;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 650px;
+  height: 450px;
+  background-color: black;
+  color: white;
+  box-shadow: 10px 5px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+
+.poster {
+  aspect-ratio: 3 / 4;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info span {
+  color: darkgray;
+}
+
+.info {
+  display: flex;
+  column-gap: 10px;
+}
+
+.read-more {
+  color: #f1c40f;
+  text-decoration: underline;
+}
+
+.trailer {
+  width: 100%;
+  height: 35px;
+  background-color: #d35400;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
