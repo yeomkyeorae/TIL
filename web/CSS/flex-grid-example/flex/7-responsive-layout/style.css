@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #34495e;
+  color: white;
+}
+
+.contents {
+  display: flex;
+  height: 100%;
+}
+
+aside {
+  background-color: lightgray;
+  /* sidebar 크기 180보다 작아지지 않도록 */
+  flex-basis: 180px;
+  flex-shrink: 0;
+  padding: 20px;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.box1 {
+  background-color: #e74c3c;
+}
+
+.box2 {
+  background-color: #8e44ad;
+}
+
+.box3 {
+  background-color: #2ecc71;
+}
+
+.box4 {
+  background-color: #3498db;
+}
+
+section {
+  flex: 1 200px;
+  padding: 20px;
+}
+
+footer {
+  height: 70px;
+  background-color: #34495e;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 모바일 대응 */
+@media screen and (max-width: 600px) {
+  aside {
+    display: none;
+  }
+  /* 모바일일 경우 1개의 section이 가로 모두를 차지하도록 */
+  section {
+    flex: 1 100%;
+  }
+}
