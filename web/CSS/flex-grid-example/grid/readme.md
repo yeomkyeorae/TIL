@@ -146,3 +146,88 @@ footer {
   grid-auto-columns: 20px;
 }
 ```
+
+# Grid - item
+
+## 1. grid-column-start / end
+
+해당 속성은 item이 차지하는 column의 시작점과 끝점을 지정할 수 있게 한다.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 100px 200px 300px;
+  grid-template-rows: 100px 100px;
+}
+
+.item2 {
+  background-color: #2ecc71;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+```
+
+위의 경우 item이 column 2번째부터 4번째까지 차지하게 된다.
+
+## 2. grid-row-start / end
+
+해당 속성도 마찬가지로 item이 차지하는 row의 시작점과 끝점을 지정할 수 있게 한다.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 100px 200px 300px;
+  grid-template-rows: 100px 100px;
+}
+
+.item2 {
+  background-color: #2ecc71;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+```
+
+## 3. grid-column / row
+
+grid-column-start / end와 grid-row-start / end를 동시에 지정할 수 있는 속성. start와 row를 슬래시로 구분해 입력.
+span 값을 사용해 처음부터 몇 칸을 차지할지 지정할 수도 있다.
+
+```css
+.item2 {
+  background-color: #2ecc71;
+  /* grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3; */
+
+  grid-column: 2 / 4;
+  /* grid-column: 2 / span 2; */
+
+  grid-row: 1 / 3;
+}
+```
+
+## 4. justify-self, align-self, place-self
+
+`justify-self`는 item 자기 자신의 수평 방향의 정렬을 지정한다. `align-self`는 item 자기 자신의 수직 방향의 정렬을 지정한다. `space-between`, `space-around` 속성을 사용할 수 없다. `place-self`는 순서대로 `align-self justify-self`값을 동시에 지정할 수 있다. 하나만 입력할 경우 2개가 값을 속성을 갖는다.
+
+```css
+.item2 {
+  background-color: #2ecc71;
+  justify-self: center;
+  align-self: center;
+}
+```
+
+## 5. order
+
+order 속성을 사용해 시각적으로 보이는 순서를 바꿀 수 있다. 값이 낮을수록 더 높은 우선순위를 갖는다. 기본 값은 0이며, 아래와 같은 예제의 경우 가장 먼저 나오는 요소로 배치된다.
+
+```css
+.item2 {
+  background-color: #2ecc71;
+  order: -1;
+}
+```
