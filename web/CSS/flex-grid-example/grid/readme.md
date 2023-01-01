@@ -231,3 +231,52 @@ order 속성을 사용해 시각적으로 보이는 순서를 바꿀 수 있다.
   order: -1;
 }
 ```
+
+# Grid - others
+
+## 1. repeat
+
+grid-template에서 반복되는 행/열의 크기 지정을 간추릴 수 있다.
+
+```css
+.container {
+  display: grid;
+  /* grid-template-columns: 100px 100px 100px; */
+  grid-template-columns: repeat(3, 100px);
+  /* grid-template-rows: 100px 100px; */
+  grid-template-rows: repeat(2, 100px);
+}
+```
+
+## 2. minmax
+
+고정된 크기 외 최솟값과 최댓값을 지정할 수 있다.
+
+```css
+.container {
+  display: grid;
+  /* grid-template-columns: 100px 100px 100px; */
+  grid-template-columns: repeat(3, minmax(100px, 300px));
+}
+```
+
+## 3. auto-fill, auto-fit
+
+가진 공간의 셀을 최대한 많이 배치하기 위해서 사용한다. `auto-fill`은 비어 있는 공간에 최대한 많은 셀을 배치한다. 개발자 도구에서 grid 속성을 켜면 숨겨진 셀들을 볼 수 있다.
+반면에 auto-fit은 남는 공간에 현재 셀을 꽉 채워서 배치한다.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+}
+```
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+}
+```
