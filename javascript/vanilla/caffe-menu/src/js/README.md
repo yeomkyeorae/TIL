@@ -15,3 +15,16 @@ const $ = (selector) => document.querySelector(selector);
 - e.target.closest("li").remove() - li element 삭제
 
 - innerHTML vs innerText
+
+- localStorage on store
+
+- data 식별자 속성(html에서 data-로 지정 및 JS에서 dataset으로 접근)
+
+```html
+<div data-category-name="blended"></div>
+```
+
+```javascript
+// ...
+const categoryName = e.target.dataset.categoryName;
+```
