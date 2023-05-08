@@ -44,3 +44,23 @@ LetFunction()
 
 ## 2. Hoisting
 
+## 3. Array
+### (1) Array.from 메소드
+유사 배열 객체나 반복 가능한 객체를 얕게 복사해서 새로운 Array 객체를 만든다.
+
+예시)
+```javascript
+console.log(Array.from('foo'));
+// expected output: Array ["f", "o", "o"]
+
+console.log(Array.from([1, 2, 3], x => x + x));
+// expected output: Array [2, 4, 6]
+```
+
+## 4. Operator
+### (1) ??
+`??` 조건식 왼쪽에 있는 값이 `null` 이나 `undefined`일 경우 `??` 조건식 오른쪽 있는 값을 반환. 아닐 경우는 `??` 조건식 왼쪽에 있는 값을 반환
+```javascript
+const value = null ?? 10;   // value: 10
+const value2 = 100 ?? 10;   // value: 100
+```

@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+}
+
+.box1 {
+    background-color: #2980b9;
+}
+
+.box2 {
+    background-color: #16a085;
+    order: -1;
+}
+
+.box3 {
+    background-color: #e74c3c;
+}
