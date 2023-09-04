@@ -1,0 +1,30 @@
+# tailwindcss 
+## className 목록
+- bg-gray-100
+- border-2
+- border-sky-600
+- cursor-pointer
+- flex
+- flex-col
+- font-semibold font-bold
+- grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-4
+- grow
+- h-1/5
+- hover:text-sky-600
+- items-center
+- justify-between
+- m-4 ml-2 mt-4 mb-8
+- max-h-[500px]
+- max-w-screen-2xl
+- mx-auto
+- object-cover
+- overflow-hidden
+- p-4
+- rounded-lg rounded-2xl rounded-full
+- self-end
+- shadow-lg
+- text-center
+- text-sky-600
+- text-sm text-xl
+- truncated
+- w-full
