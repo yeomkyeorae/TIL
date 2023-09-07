@@ -9,6 +9,7 @@
 - font-semibold font-bold
 - grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-4
 - grow
+- group group-hover:text-6xl
 - h-1/5
 - hover:text-sky-600
 - items-center
@@ -26,5 +27,7 @@
 - text-center
 - text-sky-600
 - text-sm text-xl
+- transition-all
+- translate-x-1/2 translate-y-1/2
 - truncated
 - w-full
