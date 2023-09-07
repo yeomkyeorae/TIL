@@ -27,7 +27,7 @@
 - text-center
 - text-sky-600
 - text-sm text-xl
-- transition-all
+- transition-all (transition은 CSS 프로퍼티의 값이 변화할 때, 프로퍼티 값의 변화가 일정 시간에 걸쳐 일어나도록 한다)
 - translate-x-1/2 translate-y-1/2
 - truncated
 - w-full
